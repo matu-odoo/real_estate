@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_special_offer">
+   		    <field name="name">Special Offer</field>
+            <field name="res_model">special.offer</field>
+ 		    <field name="view_mode">tree,form</field>
+ 	    </record>
+
+        <record id="special_offer_tree_inherit" model="ir.ui.view">
+        <!-- tree view = list view -->
+            <field name="name">special.offer.tree.inherit"</field>
+            <field name="model">special.offer</field>
+            
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="offer_ids"/>
+                    <field name="discounted_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="special_offer_form_inherit" model="ir.ui.view">
+            <field name="name">special.offer.form.inherit</field>
+            <field name="model">special.offer</field>
+            <field name="inherit_id" ref="real_estate.estate_property_offer_view_form"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="offer_ids"/>
+                            <field name="discounted_price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+
+    <menuitem
+        id="special_offer_menu"
+        name="Special Offer"
+        action="action_special_offer"
+        parent="real_estate.menu_realestate_root"
+    />
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_sez_property">
+   		    <field name="name">SEZ Property</field>
+            <field name="res_model">estate.property</field>
+ 		    <field name="view_mode">tree,form</field>
+ 	    </record>
+
+        <record id="estate_property_form" model="ir.ui.view">
+            <field name="name">estate.property.form</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="city"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+    <menuitem
+        id="sez_property_menu"
+        name="SEZ Property"
+        action="action_sez_property"
+        parent="real_estate.menu_realestate_root"
+    />
+</odoo>
